@@ -48,6 +48,7 @@
     "build": "cross-env BABEL_ENV=dev vue-cli-service build",
     "lint": "vue-cli-service lint",
     "serve": "cross-env BABEL_ENV=dev vue-cli-service serve",
+    "heroku-'postbuild'": "yarn build",
     "test": "cross-env BABEL_ENV=test jest --coverage",
     "start": "node server/server.js"
   },
