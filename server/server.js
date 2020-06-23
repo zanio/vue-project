@@ -5,7 +5,7 @@ const path = require("path");
 const port = process.env.PORT || 8080;
 const app = express();
 
-app.use(favicon(path.join(__dirname, "../", "build", "favicon.ico")));
+app.use(favicon(path.join(__dirname, "../", "dist", "favicon.ico")));
 
 app.get("/ping", function(req, res) {
   return res.send("pong");
@@ -14,10 +14,10 @@ app.get("/ping", function(req, res) {
 const isProduction = process.env.NODE_ENV === "production";
 
 if (isProduction) {
-  app.use(express.static("build"));
+  app.use(express.static("dist"));
   // eslint-disable-next-line global-require
   app.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "../", "dist", "index.html"));
   });
 }
 
